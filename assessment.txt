@@ -1,0 +1,47 @@
+How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+
+Rails communicates to the database using the database.yml file in the config folder. This file contains configuration info for three different databases used for the three different rails environments (production, test, development), including adapter info and the path to the databases. Rails uses migrations to updates tables and table rows within the database, and writes the database's current schema to a schema.rb file.
+
+
+What is a resource?
+
+A resource is a set of data that the user interacts with on the rails app. Resources are most concretely represented by models, such as the Post and Comment models in this rails project.
+
+
+What are the standard RESTful routes for a resource?
+
+GET resources
+POST resources
+GET resources/new
+GET resources/:id/edit
+GET resources/:id
+PATCH resources/:id
+DELETE resources/:id
+
+
+What is CRUD?
+
+CRUD is an acronym that stands for Create, Read, Update, Delete. It is the standard series of operations performed on a resource contained in a database.
+
+
+What is REST?
+
+REST is a standard for constructing URLs that allows users to transparently interact with resources on your app. These conventions have resulted in the use of the standard RESTful routes listed above.
+
+
+What is the difference between CRUD and REST?
+
+CRUD represents the ways in which users modify data, while REST allows users to easily view and browse this data.
+
+
+Describe the flow of a request from a users browser through the rails stack and back.
+
+When the user's browser sends a request, it gets sent to the rails app's web server. The request then gets passed through rack middleware and hits the routes.rb file. This file determines which controller (and which action of that controller) should handle the request. The request then gets routed to the correct controller action. This action will make sure to collect the right information from the app's models, which in turn hit the database with requests for data. Once the necessary data is collected from the models (and the database), the controller renders a view, which displays this data, and the view is sent back to the user's browser.
+
+What are HTTP verbs?
+
+HTTP verbs represent what the browser (and the user) intends to do, and are conveyed through an HTTP request. HTTP verbs are sent to a web server, such as a rails server, which decides how to respond to each HTTP verb by routing to the correct controller actions. Common HTTP verbs are GET, POST, PATCH, and DELETE. Though browsers really only use GET and POST, rails allows us to easily take advatange of other more semantic requests like PATCH and DELETE.
+
+Why do we use migrations?
+
+Migrations allow us to achieve granularity in our database construction, writing many small files to update the schema of our database instead of one large one. This makes it easier to rollback to previous schema states and seperate out units of work. 
