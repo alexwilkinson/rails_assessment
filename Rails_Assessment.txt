@@ -1,0 +1,30 @@
+Rails Assesment
+
+The answers to this assesment should be submitted in the form of a link to a github repo
+The repository should be a rails app with one additional file in the root directory called assesment.txt
+
+Create a blog.
+
+The blog should have the ability to have posts and comments on posts.  There's no need to add a user model.
+
+From any post I should be able to both see all the comments and add a comment myself.
+
+Questions to be answered in the assesment.txt file.
+
+How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+
+What is a resource?
+
+What are the standard RESTful routes for a resource?
+
+What is CRUD?
+
+What is REST?
+
+What is the difference between CRUD and REST?
+
+Describe the flow of a request from a users browser through the rails stack and back.
+
+What are HTTP verbs?
+
+Why do we use migrations.
