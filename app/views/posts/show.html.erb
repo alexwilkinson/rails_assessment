@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @post.title %></h1>
+
+<p>
+  <%= @post.content %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<% if !@post.comments.empty? %>
+
+<br>
+<br>
+
+<div>
+  <% @post.comments.each do |comment| %>
+    <div>
+      <h3><%= comment.title %></h3>
+      <p><%= comment.content %></p>
+    </div>
+  <% end %>
+</div>
+
+<% end %>
+
+<br>
+<br>
+
+<h2> Write Comment </h2>
+<%= form_for @comment do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= hidden_field_tag "post_id", @post.id %> <br>
+
+  <%= f.submit "Post Comment" %>
+<% end %>
